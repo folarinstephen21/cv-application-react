@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Section from "./Section";
 import "../styles/GeneralInfo.css";
 
 function GeneralInfo() {
@@ -12,7 +13,10 @@ function GeneralInfo() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setInfo((prevInfo) => ({
+    console.log(e.target);
+    
+    
+    setInfo((prevInfo) =>  ({
       ...prevInfo,
       [name]: value,
     }));
@@ -28,8 +32,8 @@ function GeneralInfo() {
   }
 
   return (
-    <section>
-      <h2>General Information</h2>
+    <Section title='General information'>
+      
 
       {isEditing ? (
         <form onSubmit={handleSubmit}>
@@ -74,7 +78,7 @@ function GeneralInfo() {
           <button onClick={handleEdit}>Edit</button>
         </div>
       )}
-    </section>
+    </Section>
   );
 }
 
